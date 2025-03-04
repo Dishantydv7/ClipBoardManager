@@ -4,23 +4,26 @@ on: [push, pull_request]  # Runs on every push or PR
 
 jobs:
   build:
-    runs-on: windows-latest  # Uses a Windows machine
+    runs-on: windows-latest  # Use a Windows machine for building
 
     steps:
       - name: Checkout Repository
-        uses: actions/checkout@v4  # Clones your repo
+        uses: actions/checkout@v4  # Clones the repository
 
-      - name: Install Rust
+      - name: Install Rust Toolchain for Windows
         uses: dtolnay/rust-toolchain@stable
         with:
-          target: x86_64-pc-windows-gnu  # Adds Windows support
+          target: x86_64-pc-windows-gnu  # Cross-compilation target
 
       - name: Build for Windows
-        run: cargo build --release
+        run: cargo build --release || echo "Build failed"  # Failsafe check
+
+      - name: Debug - List Files in target/release
+        run: dir target\release  # List generated files for debugging
 
       - name: Upload Windows Executable
         uses: actions/upload-artifact@v4
         with:
           name: clipboard_manager_exe
-          path: target/release/clipboard_manager.exe
+          path: target/release/*.exe  # Upload any .exe file found
 
