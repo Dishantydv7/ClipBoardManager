@@ -1,0 +1,13 @@
+hello how are you
+rustup target add x86_64-pc-windows-gnu
+
+brew install mingw-w64
+
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+brew install mingw-w64
+
+    echo >> /Users/dishant/.zprofile
+    echo 'eval "$(/opt/homebrew/bin/brew shellenv)"' >> /Users/dishant/.zprofile
+    eval "$(/opt/homebrew/bin/brew shellenv)"
+cargo build --release --target x86_64-pc-windows-gnu
+
