@@ -1,0 +1,26 @@
+name: Build Rust for Windows
+
+on: [push, pull_request]  # Runs on every push or PR
+
+jobs:
+  build:
+    runs-on: windows-latest  # Uses a Windows machine
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4  # Clones your repo
+
+      - name: Install Rust
+        uses: dtolnay/rust-toolchain@stable
+        with:
+          target: x86_64-pc-windows-gnu  # Adds Windows support
+
+      - name: Build for Windows
+        run: cargo build --release
+
+      - name: Upload Windows Executable
+        uses: actions/upload-artifact@v4
+        with:
+          name: clipboard_manager_exe
+          path: target/release/clipboard_manager.exe
+
