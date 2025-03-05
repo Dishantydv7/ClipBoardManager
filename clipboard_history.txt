@@ -11,3 +11,5 @@ brew install mingw-w64
     eval "$(/opt/homebrew/bin/brew shellenv)"
 cargo build --release --target x86_64-pc-windows-gnu
 
+clipboard_manager_exe.zip
+dfw
