@@ -27,3 +27,6 @@ A simple clipboard manager that **runs in the background** and **saves copied te
 ```sh
 git clone https://github.com/YOUR_USERNAME/ClipboardManager.git
 cd ClipboardManager
+
+
+Also Added an Executable (FOR MAC* Silicon users only) to directly run the program.
