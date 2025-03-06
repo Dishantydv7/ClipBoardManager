@@ -18,7 +18,7 @@ A simple clipboard manager that **runs in the background** and **saves copied te
 ---
 
 
-Also Added an Executable (FOR MAC* Silicon users only) to directly run the program.
+Also Added an Executable (FOR MAC* Silicon users only) to directly run the program. {ClipBoardExt}
 
 ## 🔧 Installation & Usage
 
